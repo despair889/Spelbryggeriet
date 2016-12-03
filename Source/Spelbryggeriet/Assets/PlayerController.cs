@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
             material.color = Color.blue;
         else if (player == 5)
             material.color = Color.black;
+		else if (player == 6)
+			material.color = Color.cyan;
 
 
     }
@@ -46,6 +48,16 @@ public class PlayerController : MonoBehaviour
         {
             hAxis = Input.GetAxis("Horizontal1");
             vAxis = Input.GetAxis("Vertical1");
+		
+			if (hAxis == 0 && vAxis == 0) 
+				hAxis = Input.GetKey ("a") ? -1 : 0;
+			if (hAxis == 0 && vAxis == 0) 
+				hAxis = Input.GetKey ("d") ? 1 : 0;
+			if (vAxis == 0 && vAxis == 0)
+				vAxis = Input.GetKey ("w") ? -1 : 0;
+			if (vAxis == 0 && vAxis == 0)
+				vAxis = Input.GetKey ("s") ? 1 : 0;
+
         }
         else if (player == 2)
         {
@@ -67,6 +79,11 @@ public class PlayerController : MonoBehaviour
             hAxis = Input.GetAxis("Horizontal5");
             vAxis = Input.GetAxis("Vertical5");
         }
+		else if (player ==6)
+		{
+			hAxis = Input.GetAxis("Horizontal6");
+			vAxis = Input.GetAxis("Vertical6");
+		}
 
         Vector3 movment = new Vector3(hAxis, 0, -vAxis) * speed * Time.deltaTime;
 
