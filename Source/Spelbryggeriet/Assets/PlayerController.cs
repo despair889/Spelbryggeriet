@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 18;
 
     private Rigidbody rigidBody;      
-	b
+
     private Material material;
 
     void Start()
