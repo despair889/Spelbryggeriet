@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
 
-    public static int players = 1;
+    public static int players = 0;
     public int player = 0;
     public float speed = 18;
 
@@ -19,8 +19,9 @@ public class PlayerController : MonoBehaviour
         //material = GetComponent<Material>();
         material = GetComponent<Renderer>().material;
 
-        player = PlayerController.players;
         PlayerController.players++;
+        player = PlayerController.players;
+  
 
         if (player == 1)
             material.color = Color.red;
@@ -32,9 +33,9 @@ public class PlayerController : MonoBehaviour
             material.color = Color.blue;
         else if (player == 5)
             material.color = Color.black;
-		else if (player == 6)
-			material.color = Color.cyan;
-
+        else if (player == 6)
+            material.color = Color.cyan;
+       
 
     }
 
@@ -79,11 +80,11 @@ public class PlayerController : MonoBehaviour
             hAxis = Input.GetAxis("Horizontal5");
             vAxis = Input.GetAxis("Vertical5");
         }
-		else if (player ==6)
-		{
-			hAxis = Input.GetAxis("Horizontal6");
-			vAxis = Input.GetAxis("Vertical6");
-		}
+        else if (player == 6)
+        {
+            hAxis = Input.GetAxis("Horizontal6");
+            vAxis = Input.GetAxis("Vertical6");
+        }
 
         Vector3 movment = new Vector3(hAxis, 0, -vAxis) * speed * Time.deltaTime;
 
